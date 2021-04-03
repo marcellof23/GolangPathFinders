@@ -9,6 +9,6 @@ import (
 func main() {
 	r := gin.Default()
 	r.GET("/wakwaw", services.Wakwaw())
-	r.GET("/test", services.Wakwaw())
+	r.GET("/test", services.Test())
 	r.Run("127.0.0.1:5000")
 }
