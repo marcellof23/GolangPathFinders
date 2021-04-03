@@ -1,0 +1,283 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+ 
+# GNU Make 4.3
+# Built for Windows32
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Sun Apr 04 00:42:08 2021
+
+# Variables
+
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+# environment
+JAVA_HOME = C:\Program Files\Amazon Corretto\jdk11.0.10_9
+# environment
+OMP_WAIT_POLICY = PASSIVE
+# environment
+USERPROFILE = C:\Users\user
+# environment
+VBOX_MSI_INSTALL_PATH = E:\VirtualBox\
+# environment
+ProgramW6432 = C:\Program Files
+# environment
+LOCALAPPDATA = C:\Users\user\AppData\Local
+# environment
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-fb1d99cd-02dc-49d2-b7d5-0bbeed31d4e0-sock
+# environment
+VSCODE_CWD = C:\Users\user\AppData\Local\Programs\Microsoft VS Code
+# environment
+PROCESSOR_LEVEL = 6
+# default
+MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
+# environment
+GOPATH = C:\Users\user\go
+# automatic
+@D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_2040_QSCBDSTZWJIZKQFB
+# environment
+CommonProgramFiles = C:\Program Files (x86)\Common Files
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# automatic
+%D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
+# automatic
+^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
+# environment
+VSCODE_LOG_STACK = false
+# automatic
+%F = $(notdir $%)
+# default
+.LOADED := 
+# environment
+TMP = C:\Users\user\AppData\Local\Temp
+# default
+.INCLUDE_DIRS = .
+# environment
+PROCESSOR_ARCHITEW6432 = AMD64
+# environment
+ChocolateyInstall = C:\ProgramData\chocolatey
+# makefile
+MAKEFLAGS = pqrR
+# makefile
+CURDIR := c:/Users/user/Documents/GolangPathfinder
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# automatic
+*D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
+# environment
+KMP_BLOCKTIME = 0
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# environment
+PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+# automatic
++D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
+# makefile (from 'makefile', line 1)
+MAKEFILE_LIST := makefile
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+VSCODE_PID = 2040
+# automatic
+?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
+# environment
+ProgramFiles(x86) = C:\Program Files (x86)
+# automatic
+*F = $(notdir $*)
+# automatic
+<D = $(patsubst %/,%,$(patsubst %\,%,$(dir $<)))
+# environment
+OneDrive = C:\Users\user\OneDrive
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# default
+MAKE_HOST := Windows32
+# environment
+ANDROID_HOME = C:\Users\user\AppData\Local\Android\Sdk
+# default
+SHELL := sh.exe
+# environment
+windir = C:\Windows
+# environment
+HOMEPATH = \Users\user
+# default
+MAKECMDGOALS := all
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = C:\Program Files\Amazon Corretto\jdk11.0.10_9\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Python27\;C:\Python27\Scripts;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin;C:\Program Files\OpenJDK\openjdk-8u275-b01\bin;C:\Program Files\MariaDB 10.5\bin;C:\Users\user\AppData\Local\Android\Sdk\platform-tools;C:\Users\user\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Go\bin;C:\Users\user\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\user\AppData\Local\Programs\Python\Python39\;C:\Users\user\AppData\Local\Microsoft\WindowsApps;C:\Users\user\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\user\AppData\Local\GitHubDesktop\bin;C:\Users\user\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\user\.dotnet\tools;C:\Users\user\go\bin
+# environment
+COMPUTERNAME = DESKTOP-0E6RKI3
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# environment
+CommonProgramFiles(x86) = C:\Program Files (x86)\Common Files
+# environment
+PROMPT = $P$G
+# environment
+LOGONSERVER = \\DESKTOP-0E6RKI3
+# environment
+VSCODE_LOG_NATIVE = false
+# environment
+USERNAME = user
+# automatic
+?F = $(notdir $?)
+# environment
+ChocolateyLastPathUpdate = 132547499956586877
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+# automatic
++F = $(notdir $+)
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+USERDOMAIN = DESKTOP-0E6RKI3
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+OS = Windows_NT
+# environment
+SystemRoot = C:\Windows
+# makefile
+.DEFAULT_GOAL := dev
+# environment
+NVM_HOME = C:\Users\user\AppData\Roaming\nvm
+# environment
+ProgramFiles = C:\Program Files (x86)
+# environment
+SystemDrive = C:
+# default
+MAKE_VERSION := 4.3
+# environment
+USERDOMAIN_ROAMINGPROFILE = DESKTOP-0E6RKI3
+# environment
+NUMBER_OF_PROCESSORS = 4
+# environment
+PUBLIC = C:\Users\Public
+# environment
+ProgramData = C:\ProgramData
+# environment
+VSCODE_NODE_CACHED_DATA_DIR = C:\Users\user\AppData\Roaming\Code\CachedData\c185983a683d14c396952dd432459097bc7f757f
+# environment
+APPDATA = C:\Users\user\AppData\Roaming
+# environment
+HOMEDRIVE = C:
+# environment
+NVM_SYMLINK = C:\Program Files\nodejs
+# environment
+PROCESSOR_ARCHITECTURE = x86
+# environment
+GOMODCACHE = C:\Users\user\go\pkg\mod
+# environment
+DriverData = C:\Windows\System32\Drivers\DriverData
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+# environment
+CommonProgramW6432 = C:\Program Files\Common Files
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+TEMP = C:\Users\user\AppData\Local\Temp
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\680802a3ebd40da3f83beb9d3e841b70-1.55.0-main-sock
+# environment
+GOPROXY = https://proxy.golang.org,direct
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+SESSIONNAME = Console
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync load
+# environment
+PROCESSOR_REVISION = 9e09
+# environment
+ComSpec = C:\Windows\system32\cmd.exe
+# environment
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 9, GenuineIntel
+# variable set hash-table stats:
+# Load=104/1024=10%, Rehash=0, Collisions=7/131=5%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (key c:/Users/user/Documents/GolangPathfinder, mtime 1617471388): 9 files, no impossibilities.
+
+# 9 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+dev:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+makefile:
+#  Implicit rule search has been done.
+#  Last modified 2021-04-04 00:36:16
+#  File has been updated.
+#  Successfully updated.
+
+# files hash-table stats:
+# Load=5/1024=0%, Rehash=0, Collisions=0/15=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 13 / storage = 86 B / avg = 6 B
+# current buf: size = 8174 B / used = 86 B / count = 13 / avg = 6 B
+
+# strcache performance: lookups = 18 / hit rate = 27%
+# hash-table stats:
+# Load=13/8192=0%, Rehash=0, Collisions=0/18=0%
+# Finished Make data base on Sun Apr 04 00:42:08 2021
+
+ 
