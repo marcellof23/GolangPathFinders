@@ -24,10 +24,7 @@ graphForm.addEventListener("submit", e =>{
     const reader = new FileReader();
     reader.onload = () => {
 
-        for(let i=0;i<window.markers.length;i++){
-            window.markers[i].setMap(null);
-        }
-        window.markers = [];
+        clearMarker();
 
         const lines = reader.result.split('\n').map((line)=>{
             return line.split(',');
