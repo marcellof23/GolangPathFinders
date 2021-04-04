@@ -26,7 +26,6 @@ const placeMarkerAndPanTo = (coords) => {
         console.log(marker.position.lng());
     })
     marker.addListener('contextmenu', (e)=>{
-        console.log("HAHAHAHAHAHA");
         console.log(marker.position.lat());
         console.log(marker.position.lng());
     })
@@ -39,7 +38,12 @@ const clearMarker = ()=>{
     for(let i=0;i<window.markers.length;i++){
         window.markers[i].setMap(null);
     }
+    for(let i=0;i<window.polylines.length;i++){
+        window.polylines[i].setMap(null);
+    }
+
     window.markers = [];
+    window.polylines = [];
 }
 
 const clearMarkers = document.getElementById("clearNodes");
