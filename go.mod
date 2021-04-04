@@ -1,4 +1,4 @@
-module AStarPathFinder
+module github.com/Aphostrophy/GolangPathfinder
 
 go 1.16
 

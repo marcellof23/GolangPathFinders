@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"image"
 	"math"
-	"testing"
 )
 
 const (
@@ -34,7 +33,24 @@ func heuristicFunction(x, y Node) float64 {
 	d_y := v.Y - u.Y
 	return 100 * math.Sqrt(float64(d_x*d_x+d_y*d_y))
 }
-func TestAstar(t *testing.T) {
+
+// func TestAstar(t *testing.T) {
+
+// 	var arrNodes [4]Node
+// 	arrNodes[0] = image.Pt(2, 3)
+// 	arrNodes[1] = image.Pt(1, 7)
+// 	arrNodes[2] = image.Pt(1, 6)
+// 	arrNodes[3] = image.Pt(5, 6)
+// 	g := CreateGraph().AddEdge(arrNodes[0], arrNodes[1]).AddEdge(arrNodes[1], arrNodes[2]).AddEdge(arrNodes[0], arrNodes[3])
+// 	p := astar(g, arrNodes[2], arrNodes[3], heuristicFunction, heuristicFunction)
+// 	fmt.Print("Path : ")
+// 	for _, n := range p {
+// 		fmt.Printf("%s ", n)
+// 	}
+// 	fmt.Println("")
+// }
+
+func PrintAstar() {
 
 	var arrNodes [4]Node
 	arrNodes[0] = image.Pt(2, 3)

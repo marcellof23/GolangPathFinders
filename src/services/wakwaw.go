@@ -1,13 +1,15 @@
 package services
 
 import (
-	"AStarPathFinder/src/algorithm"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 	"path/filepath"
+
+	"github.com/Aphostrophy/GolangPathfinder/src/Astar"
+	"github.com/Aphostrophy/GolangPathfinder/src/algorithm"
 
 	"github.com/gin-gonic/gin"
 )
@@ -49,6 +51,7 @@ func Test() gin.HandlerFunc {
 
 func Calc() gin.HandlerFunc {
 	algorithm.TestDfs()
+	Astar.PrintAstar()
 	return func(c *gin.Context) {
 		c.Header("Content-Type", "application/json")
 		c.JSON(http.StatusOK, map[string]string{
