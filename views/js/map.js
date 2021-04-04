@@ -19,15 +19,14 @@ const placeMarkerAndPanTo = (coords) => {
     let marker = new google.maps.Marker({
       position: coords,
       map: window.map,
+      color: 'green',
     });
     marker.addListener('click', (e)=>{
-        console.log(marker.position);
         console.log(marker.position.lat());
         console.log(marker.position.lng());
     })
     marker.addListener('contextmenu', (e)=>{
-        console.log(marker.position.lat());
-        console.log(marker.position.lng());
+        marker.setIcon("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
     })
 
     window.markers.push(marker);
