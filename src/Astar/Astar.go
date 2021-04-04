@@ -4,7 +4,12 @@ import (
 	pqheap "container/heap"
 )
 
+type Point struct {
+	x, y float64
+}
+
 type Node interface {
+	String() string
 }
 type Vertices []Node // vertices -> array of Node
 
@@ -32,6 +37,14 @@ func (v Vertices) addVertices(n Node) Vertices {
 	newVertices = append(newVertices, n)
 	return newVertices
 }
+
+// func (n Node) String() string {
+//  str := strconv.Itoa(vertex.Key) + ":"
+//  for _, adjacent := range vertex.Nodes {
+//      str = str + " " + strconv.Itoa(adjacent.Key)
+//  }
+//  return str
+// }
 
 func astar(Graf Graph, start, dest Node, d, h PairCost) Vertices {
 	closed_list := make(map[Node]bool)
