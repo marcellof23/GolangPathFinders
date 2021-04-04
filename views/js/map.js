@@ -7,11 +7,6 @@ function initMap() {
 	const bandung = { lat: -6.9175, lng: 107.6191 };
 
 	window.map = new google.maps.Map(document.getElementById("map"), {
-		zoom: 13,
-		center: bandung,
-	});
-
-	window.map = new google.maps.Map(document.getElementById("map"), {
 		zoom: 17,
 		center: bandung,
 	});

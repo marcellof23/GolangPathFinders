@@ -7,8 +7,9 @@ make: *** No rule to make target 'all'.  Stop.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Sun Apr 04 14:08:45 2021
+# Make data base, printed on Mon Apr 05 01:43:50 2021
 
 # Variables
 
@@ -27,7 +28,7 @@ ProgramW6432 = C:\Program Files
 # environment
 LOCALAPPDATA = C:\Users\user\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-7ac52342-75fb-4246-9f03-3edf8f43751e-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-9c7470f8-3fcd-4750-b889-f6d05560dca3-sock
 # environment
 VSCODE_CWD = C:\Users\user\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -39,7 +40,7 @@ GOPATH = C:\Users\user\go
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_13568_ZKZAVHTPQRMIPXDO
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_11704_XLPPVELRMVCFODCY
 # environment
 CommonProgramFiles = C:\Program Files (x86)\Common Files
 # environment
@@ -93,7 +94,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 13568
+VSCODE_PID = 11704
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # environment
@@ -148,7 +149,8 @@ ChocolateyLastPathUpdate = 132547499956586877
 PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
 # automatic
 +F = $(notdir $+)
-# environment
+# environ 
+ment
 ORIGINAL_XDG_CURRENT_DESKTOP = undefined
 # environment
 USERDOMAIN = DESKTOP-0E6RKI3
@@ -209,7 +211,8 @@ GOPROXY = https://proxy.golang.org,direct
 # default
 SUFFIXES := 
 # environment
-ALLUSERSPROFILE = C:\ProgramData
+ALLUSERSPROFILE = C:\ProgramData 
+
 # environment
 SESSIONNAME = Console
 # default
@@ -229,9 +232,9 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 9, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/user/Documents/GolangPathfinder, mtime 1617472630): 10 files, no impossibilities.
+# . (key c:/Users/user/Documents/GolangPathfinder, mtime 1617544491): 12 files, no impossibilities.
 
-# 10 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -274,12 +277,12 @@ all:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 14 / storage = 93 B / avg = 6 B
-# current buf: size = 8174 B / used = 93 B / count = 14 / avg = 6 B
+# strcache buffers: 1 (0) / strings = 16 / storage = 112 B / avg = 7 B
+# current buf: size = 8174 B / used = 112 B / count = 16 / avg = 7 B
 
-# strcache performance: lookups = 19 / hit rate = 26%
+# strcache performance: lookups = 21 / hit rate = 23%
 # hash-table stats:
-# Load=14/8192=0%, Rehash=0, Collisions=0/19=0%
-# Finished Make data base on Sun Apr 04 14:08:45 2021
+# Load=16/8192=0%, Rehash=0, Collisions=0/21=0%
+# Finished Make data base on Mon Apr 05 01:43:50 2021
 
  
