@@ -30,6 +30,7 @@ const placeMarkerAndPanTo = (coords) => {
         console.log(marker.position.lng());
     })
     marker.addListener('contextmenu', (e)=>{
+        e.preventDefault();
         console.log("HAHAHAHAHAHA");
         console.log(marker.position.lat());
         console.log(marker.position.lng());
