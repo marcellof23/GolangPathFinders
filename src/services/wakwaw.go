@@ -1,6 +1,7 @@
 package services
 
 import (
+	"AStarPathFinder/src/Astar"
 	"AStarPathFinder/src/algorithm"
 	"fmt"
 	"io/ioutil"
@@ -49,10 +50,12 @@ func Test() gin.HandlerFunc {
 
 func Calc() gin.HandlerFunc {
 	algorithm.TestDfs()
+	Astar.PrintAstar()
 	return func(c *gin.Context) {
 		c.Header("Content-Type", "application/json")
 		c.JSON(http.StatusOK, map[string]string{
-			"data": "marcello wakwaw",
+			"data":   "marcello wakwaw",
+			"jesson": Astar.StringAstar(),
 		})
 	}
 }

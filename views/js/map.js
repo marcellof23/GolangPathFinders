@@ -1,20 +1,24 @@
-window.markers=[];
-window.polylines=[];
+window.markers = [];
+window.polylines = [];
 
 let activeMarkers = [];
 
 function initMap() {
+	const bandung = { lat: -6.9175, lng: 107.6191 };
 
-    const bandung = { lat: -6.9175, lng: 107.6191 };
+	window.map = new google.maps.Map(document.getElementById("map"), {
+		zoom: 13,
+		center: bandung,
+	});
 
-    window.map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 17,
-        center: bandung,
-    });
+	window.map = new google.maps.Map(document.getElementById("map"), {
+		zoom: 17,
+		center: bandung,
+	});
 
-    window.map.addListener('click', (e)=>{
-        placeMarkerAndPanTo({lat: e.latLng.lat(),lng: e.latLng.lng()});
-    })
+	window.map.addListener("click", (e) => {
+		placeMarkerAndPanTo({ lat: e.latLng.lat(), lng: e.latLng.lng() });
+	});
 }
 
 const graphForm = document.getElementById("graphForm");

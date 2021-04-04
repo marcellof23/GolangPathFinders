@@ -4,10 +4,6 @@ import (
 	pqheap "container/heap"
 )
 
-type Point struct {
-	x, y float64
-}
-
 type Node interface {
 	String() string
 }
