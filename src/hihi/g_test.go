@@ -26,7 +26,6 @@ func TestDfs(t *testing.T) {
 	g.AddEdge(6, 7)
 	g.AddEdge(9, 10)
 	g.AddEdge(2, 3)
-
 	visit := []int{}
 	path := func(i int) {
 		visit = append(visit, i)
