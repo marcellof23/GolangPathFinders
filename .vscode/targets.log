@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Apr 04 00:42:08 2021
+# Make data base, printed on Sun Apr 04 14:08:45 2021
 
 # Variables
 
@@ -27,7 +27,7 @@ ProgramW6432 = C:\Program Files
 # environment
 LOCALAPPDATA = C:\Users\user\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-fb1d99cd-02dc-49d2-b7d5-0bbeed31d4e0-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-7ac52342-75fb-4246-9f03-3edf8f43751e-sock
 # environment
 VSCODE_CWD = C:\Users\user\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -39,7 +39,7 @@ GOPATH = C:\Users\user\go
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_2040_QSCBDSTZWJIZKQFB
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_13568_ZKZAVHTPQRMIPXDO
 # environment
 CommonProgramFiles = C:\Program Files (x86)\Common Files
 # environment
@@ -86,14 +86,14 @@ MFLAGS = -pqrR
 PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
 # automatic
 +D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
-# makefile (from 'makefile', line 1)
-MAKEFILE_LIST := makefile
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 2040
+VSCODE_PID = 13568
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # environment
@@ -229,15 +229,22 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 9, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/user/Documents/GolangPathfinder, mtime 1617471388): 9 files, no impossibilities.
+# . (key c:/Users/user/Documents/GolangPathfinder, mtime 1617472630): 10 files, no impossibilities.
 
-# 9 files, no impossibilities in 1 directories.
+# 10 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 # No implicit rules.
 
 # Files
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2021-04-04 00:44:30
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .DEFAULT:
@@ -249,6 +256,8 @@ dev:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+#  recipe to execute (from 'Makefile', line 2):
+	go run src/Main.go
 
 # Not a target:
 all:
@@ -256,13 +265,6 @@ all:
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has not been updated.
-
-# Not a target:
-makefile:
-#  Implicit rule search has been done.
-#  Last modified 2021-04-04 00:36:16
-#  File has been updated.
-#  Successfully updated.
 
 # files hash-table stats:
 # Load=5/1024=0%, Rehash=0, Collisions=0/15=0%
@@ -272,12 +274,12 @@ makefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 13 / storage = 86 B / avg = 6 B
-# current buf: size = 8174 B / used = 86 B / count = 13 / avg = 6 B
+# strcache buffers: 1 (0) / strings = 14 / storage = 93 B / avg = 6 B
+# current buf: size = 8174 B / used = 93 B / count = 14 / avg = 6 B
 
-# strcache performance: lookups = 18 / hit rate = 27%
+# strcache performance: lookups = 19 / hit rate = 26%
 # hash-table stats:
-# Load=13/8192=0%, Rehash=0, Collisions=0/18=0%
-# Finished Make data base on Sun Apr 04 00:42:08 2021
+# Load=14/8192=0%, Rehash=0, Collisions=0/19=0%
+# Finished Make data base on Sun Apr 04 14:08:45 2021
 
  

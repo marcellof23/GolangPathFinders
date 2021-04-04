@@ -1,6 +1,7 @@
 package services
 
 import (
+	"AStarPathFinder/src/algorithm"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -40,6 +41,15 @@ func Test() gin.HandlerFunc {
 		fmt.Print(b)
 		c.JSON(http.StatusOK, map[string]string{
 			"data": "jesson wakwaw",
+		})
+	}
+}
+
+func Calc() gin.HandlerFunc {
+	algorithm.TestDfs()
+	return func(c *gin.Context) {
+		c.JSON(http.StatusOK, map[string]string{
+			"data": "marcello wakwaw",
 		})
 	}
 }
