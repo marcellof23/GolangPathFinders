@@ -14,13 +14,6 @@ function initMap() {
     })
 }
 
-const addMarker = (coords)=>{
-    var marker = new google.maps.Marker({
-        position: coords,
-        map:window.map,
-    })
-}
-
 const placeMarkerAndPanTo = (coords) => {
     let marker = new google.maps.Marker({
       position: coords,
