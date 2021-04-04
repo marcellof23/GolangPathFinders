@@ -1,3 +1,5 @@
+let markers=[];
+
 function initMap() {
 
     const bandung = { lat: -6.9175, lng: 107.6191 };
@@ -35,5 +37,17 @@ const placeMarkerAndPanTo = (coords) => {
         console.log(marker.position.lat());
         console.log(marker.position.lng());
     })
+
+    markers.push(marker);
     window.map.panTo(coords);
 }
+
+const clearMarker = ()=>{
+    for(let i=0;i<markers.length;i++){
+        markers[i].setMap(null);
+    }
+    markers = [];
+}
+
+const clearMarkers = document.getElementById("clearNodes");
+clearMarkers.addEventListener('click',clearMarker);
