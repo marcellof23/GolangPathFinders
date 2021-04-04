@@ -25,5 +25,6 @@ func main() {
 	api.GET("/wakwaw", services.Wakwaw())
 	api.GET("/test", services.Test())
 	api.GET("/calc", services.Calc())
+	api.POST("/graph", services.ParseFile())
 	router.Run("127.0.0.1:5000")
 }
