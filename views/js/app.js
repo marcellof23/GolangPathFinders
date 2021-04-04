@@ -21,26 +21,65 @@ const inpFile = document.getElementById("inpFile");
 
 graphForm.addEventListener("submit", e =>{
     e.preventDefault();
-    const endpoint = '/api/graph';
-    const formData = new FormData();
-    formData.append("inpFile",inpFile.files[0]);
-
     const reader = new FileReader();
     reader.onload = () => {
+
+        for(let i=0;i<window.markers.length;i++){
+            window.markers[i].setMap(null);
+        }
+        window.markers = [];
+
         const lines = reader.result.split('\n').map((line)=>{
-            return line.split(' ');
+            return line.split(',');
         });
         console.log(lines);
+        console.log(parseInt(lines[0][0]));
+        for(let i=1;i<1+parseInt(lines[0][0]);i++){
+            addMarker({lat:parseFloat(lines[i][1]),lng:parseFloat(lines[i][2])});
+        }
+        for(let i=1+parseInt(lines[0][0]);i<1+2*parseInt(lines[0][0]);i++){
+            console.log(lines[i][0]);
+            let row = lines[i][0].split(" ");
+            console.log(row);
+            for(let j=0;j<parseInt(lines[0][0]);j++){
+                if(parseInt(row[j])===parseInt("1")){
+                    console.log(row[j] , "===" , "1" , "is " , String(row[j][0])==String("1"));
+                    console.log(typeof row[j], typeof "1");
+                    addLines({lat: markers[i-1-parseInt(lines[0][0])].position.lat(),lng:markers[i-1-parseInt(lines[0][0])].position.lng()},{lat: markers[j].position.lat(),lng: markers[j].position.lng()});
+                }
+            }
+        }
     }
     reader.readAsText(inpFile.files[0]);
-
-    console.log(inpFile.files[0]);
-    (async function(){
-        const res = await fetch(endpoint,{
-            method: 'POST',
-            body: formData,
-        }).catch((err)=>console.log(err));
-        
-        console.log(await res.json());
-    })()
 });
+
+const addMarker = (coords)=>{
+    let marker = new google.maps.Marker({
+        position: coords,
+        map: window.map,
+    });
+    marker.addListener('click', (e)=>{
+        console.log(marker.position);
+        console.log(marker.position.lat());
+        console.log(marker.position.lng());
+    })
+    marker.addListener('contextmenu', (e)=>{
+        console.log("HAHAHAHAHAHA");
+        console.log(marker.position.lat());
+        console.log(marker.position.lng());
+    })
+    window.markers.push(marker);
+    window.map.panTo(coords);
+}
+
+const addLines = (sourceCoords,destinationCoords) => {
+    let polyline = new google.maps.Polyline({
+        path: [sourceCoords,destinationCoords],
+        geodesic: true,
+        strokeColor: "#FF0000",
+        strokeOpacity: 1.0,
+        strokeWeight: 2,
+    })
+    polyline.setMap(window.map);
+    window.polylines.push(polyline);
+}

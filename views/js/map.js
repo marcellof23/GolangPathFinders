@@ -1,11 +1,12 @@
-let markers=[];
+window.markers=[];
+window.polylines=[];
 
 function initMap() {
 
     const bandung = { lat: -6.9175, lng: 107.6191 };
 
     window.map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 13,
+        zoom: 17,
         center: bandung,
     });
 
@@ -25,21 +26,20 @@ const placeMarkerAndPanTo = (coords) => {
         console.log(marker.position.lng());
     })
     marker.addListener('contextmenu', (e)=>{
-        e.preventDefault();
         console.log("HAHAHAHAHAHA");
         console.log(marker.position.lat());
         console.log(marker.position.lng());
     })
 
-    markers.push(marker);
+    window.markers.push(marker);
     window.map.panTo(coords);
 }
 
 const clearMarker = ()=>{
-    for(let i=0;i<markers.length;i++){
-        markers[i].setMap(null);
+    for(let i=0;i<window.markers.length;i++){
+        window.markers[i].setMap(null);
     }
-    markers = [];
+    window.markers = [];
 }
 
 const clearMarkers = document.getElementById("clearNodes");
