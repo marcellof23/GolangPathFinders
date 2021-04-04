@@ -14,6 +14,7 @@ import (
 
 func Wakwaw() gin.HandlerFunc {
 	return func(c *gin.Context) {
+		c.Header("Content-Type", "application/json")
 		c.JSON(http.StatusOK, map[string]string{
 			"data": "marcello wakwaw",
 		})
@@ -39,6 +40,7 @@ func Test() gin.HandlerFunc {
 
 		b, err := ioutil.ReadAll(file)
 		fmt.Print(b)
+		c.Header("Content-Type", "application/json")
 		c.JSON(http.StatusOK, map[string]string{
 			"data": "jesson wakwaw",
 		})
@@ -48,6 +50,7 @@ func Test() gin.HandlerFunc {
 func Calc() gin.HandlerFunc {
 	algorithm.TestDfs()
 	return func(c *gin.Context) {
+		c.Header("Content-Type", "application/json")
 		c.JSON(http.StatusOK, map[string]string{
 			"data": "marcello wakwaw",
 		})
