@@ -10,6 +10,64 @@ const lineSymbol = {
     scale: 4,
   };
 
+function ClearControl(controlDiv) {
+
+  const controlUI = document.createElement("div");
+  controlUI.style.backgroundColor = "#dc3444";
+  controlUI.style.border = "2px solid #dc3444";
+  controlUI.style.borderRadius = "3px";
+  controlUI.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
+  controlUI.style.cursor = "pointer";
+  controlUI.style.marginTop = "8px";
+  controlUI.style.marginBottom = "22px";
+  controlUI.style.textAlign = "center";
+  controlUI.title = "Click to remove markers and reset the map";
+  controlDiv.appendChild(controlUI);
+
+  const controlText = document.createElement("div");
+  controlText.style.color = "#FFF";
+  controlText.style.fontFamily = "Roboto,Arial,sans-serif";
+  controlText.style.fontSize = "16px";
+  controlText.style.lineHeight = "38px";
+  controlText.style.paddingLeft = "5px";
+  controlText.style.paddingRight = "5px";
+  controlText.innerHTML = "Clear Nodes";
+  controlUI.appendChild(controlText);
+
+  controlUI.addEventListener("click", () => {
+    clearMarker();
+  });
+}
+
+function SubmitControl(controlDiv) {
+
+    const controlUI = document.createElement("div");
+    controlUI.style.backgroundColor = "#48ac44";
+    controlUI.style.border = "2px solid #48ac44";
+    controlUI.style.borderRadius = "3px";
+    controlUI.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
+    controlUI.style.cursor = "pointer";
+    controlUI.style.marginTop = "8px";
+    controlUI.style.marginBottom = "22px";
+    controlUI.style.textAlign = "center";
+    controlUI.title = "Click to recenter the map";
+    controlDiv.appendChild(controlUI);
+  
+    const controlText = document.createElement("div");
+    controlText.style.color = "#FFF";
+    controlText.style.fontFamily = "Roboto,Arial,sans-serif";
+    controlText.style.fontSize = "16px";
+    controlText.style.lineHeight = "38px";
+    controlText.style.paddingLeft = "5px";
+    controlText.style.paddingRight = "5px";
+    controlText.innerHTML = "Find Shortest Path";
+    controlUI.appendChild(controlText);
+  
+    controlUI.addEventListener("click", () => {
+      clearMarker();
+    });
+  }
+
 function initMap() {
 	const bandung = { lat: -6.9175, lng: 107.6191 };
 
@@ -21,10 +79,21 @@ function initMap() {
 	window.map.addListener("click", (e) => {
 		placeMarkerAndPanTo({ lat: e.latLng.lat(), lng: e.latLng.lng() });
 	});
+
+    const clearControlDiv = document.createElement("div");
+    const submitControlDiv = document.createElement("div");
+    ClearControl(clearControlDiv);
+    SubmitControl(submitControlDiv);
+    window.map.controls[google.maps.ControlPosition.TOP_CENTER].push(clearControlDiv);
+    window.map.controls[google.maps.ControlPosition.TOP_CENTER].push(submitControlDiv);
 }
 
 const graphForm = document.getElementById("graphForm");
 const inpFile = document.getElementById("inpFile");
+
+graphForm.onchange = ()=>{
+    document.getElementById("inpFileLabel").innerHTML = inpFile.files[0].name;
+}
 
 graphForm.addEventListener("submit", e =>{
     e.preventDefault();
@@ -82,9 +151,6 @@ const clearMarker = ()=>{
     window.markers = [];
     window.polylines = [];
 }
-
-const clearMarkers = document.getElementById("clearNodes");
-clearMarkers.addEventListener('click',clearMarker);
 
 const addLines = (sourceCoords,destinationCoords) => {
     let polyline = new google.maps.Polyline({
