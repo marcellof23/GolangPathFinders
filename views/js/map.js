@@ -2,6 +2,13 @@ window.markers = [];
 window.polylines = [];
 
 let activeMarkers = [];
+let pointedMarkers = [];
+
+const lineSymbol = {
+    path: "M 0,-1 0,1",
+    strokeOpacity: 1,
+    scale: 4,
+  };
 
 function initMap() {
 	const bandung = { lat: -6.9175, lng: 107.6191 };
@@ -51,11 +58,12 @@ const placeMarkerAndPanTo = (coords) => {
       icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
     });
     marker.addListener('click', (e)=>{
+        handleNodeLeftClick(marker);
         console.log(marker.position.lat());
         console.log(marker.position.lng());
     })
     marker.addListener('contextmenu', (e)=>{
-        marker.setIcon("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
+        handleNodeRightClick(marker);
     })
 
     window.markers.push(marker);
@@ -81,10 +89,36 @@ const addLines = (sourceCoords,destinationCoords) => {
     let polyline = new google.maps.Polyline({
         path: [sourceCoords,destinationCoords],
         geodesic: true,
-        strokeColor: "#FF0000",
-        strokeOpacity: 1.0,
-        strokeWeight: 2,
+        strokeOpacity: 0,
+        icons:[{
+            icon: lineSymbol,
+            offset: "0",
+            repeat: "30px",
+        }]
     })
     polyline.setMap(window.map);
     window.polylines.push(polyline);
+}
+
+const handleNodeLeftClick = (marker)=>{
+    marker.setIcon("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
+    if(pointedMarkers.length==1){
+        addLines({lat: pointedMarkers[0].position.lat(),lng: pointedMarkers[0].position.lng()},{lat: marker.position.lat(),lng: marker.position.lng()})
+        marker.setIcon("http://maps.google.com/mapfiles/ms/icons/red-dot.png");
+        pointedMarkers[0].setIcon("http://maps.google.com/mapfiles/ms/icons/red-dot.png");
+        pointedMarkers = [];
+    } else{
+        pointedMarkers.push(marker);
+    }
+}
+
+const handleNodeRightClick = (marker)=>{
+    if(activeMarkers.length==2){
+        console.log("Penuh");
+        activeMarkers[0].setIcon("http://maps.google.com/mapfiles/ms/icons/red-dot.png");
+        activeMarkers.shift();
+    } 
+    console.log(activeMarkers);
+    activeMarkers.push(marker)
+    marker.setIcon("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
 }
