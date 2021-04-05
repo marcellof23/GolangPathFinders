@@ -1,36 +1,129 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/map.css">
-  <link rel="icon" href="compass-icon.png" type="image/icon type">
-  <title>Tucil 3 Stima</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-</head>
 
-<body>
-  <h1>Welcome to the PathFinder App</h1>
-  <div id="map"></div>
-  <button id="marcello">"Tangkap Saya" -Marcello</button>
-  <form class="fileForm" id="graphForm">
-      <div class="input-group mb-3 w-25">
-        <div class="custom-file">
-          <input type="file" class="custom-file-input" id="inpFile" accept=".txt">
-          <label class="custom-file-label" for="inputGroupFile02" id="inpFileLabel">Choose file</label>
-        </div>
-        <div class="input-group-append">
-          <button type="submit" class="btn btn-primary" >Upload File</button>
-        </div>
-      </div>
-  </form>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="js/app.js"></script>
-  <script src="js/map.js"></script>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfkvgHThjykI1BTVBg42bu1MdwGCcbgsg&callback=initMap&libraries=&v=weekly"
-    async defer
-  ></script>
-</body>
+	<head>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="map.css" />
+		<link rel="stylesheet" href="index.css" />
+		<link rel="stylesheet" href="util.css" />
+    <link rel="icon" href="compass-icon.png" type="image/icon type">
+		<title>Tucil 3 Stima</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+	</head>
+
+	<body>
+		<section class="showcase">
+			<div class="container grid">
+				<div class="showcase-text">
+					<h1>PathFinder App</h1>
+					<p>
+						Path Finder app tracks, records and allows you to share your path,
+						speed, distance with others while in drive or walk mode. Path Finder
+						provide real time data, maps out your path, shows google path
+						alternatives and allows you to save your route for future reference.
+						The app uses the GPS Sensor in your phone to record the geographic
+						statistics.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="stats">
+			<div class="container">
+				<h3 class="stats-heading text-center my-1">
+					Welcome to the best platform for finding your path to nearest
+					destination
+				</h3>
+
+				<div class="grid grid-3 text-center my-4">
+					<div>
+						<i class="fas fa-server fa-3x"></i>
+						<h3>10,349,405</h3>
+						<p class="text-secondary">Deployments</p>
+					</div>
+					<div>
+						<i class="fas fa-upload fa-3x"></i>
+						<h3>987 TB</h3>
+						<p class="text-secondary">Published</p>
+					</div>
+					<div>
+						<i class="fas fa-project-diagram fa-3x"></i>
+						<h3>1,000,024</h3>
+						<p class="text-secondary">Shared</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Cli -->
+		<section class="cli">
+			<div class="container grid">
+				<img src="images/cli.png" alt="" />
+				<div class="card">
+					<h3>Easy to use, cross platform CLI</h3>
+				</div>
+				<div class="card">
+					<h3>Deploy in seconds</h3>
+				</div>
+			</div>
+		</section>
+		<div class="body2">
+			<div id="welcomeText"></div>
+
+			<div id="map"></div>
+			<!--<button id="marcello">"Tangkap Saya" -Marcello</button>-->
+			<div class="inputGroups">
+				<form class="fileForm" id="graphForm">
+					<div class="input-group">
+						<div class="custom-file">
+							<input
+								type="file"
+								class="custom-file-input"
+								id="inpFile"
+								accept=".txt"
+							/>
+							<label
+								class="custom-file-label"
+								for="inputGroupFile02"
+								id="inpFileLabel"
+								>Choose file</label
+							>
+						</div>
+						<div class="input-group-append">
+							<button type="submit" class="btn btn-primary x">
+								Upload File
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"
+		></script>
+		<script src="js/app.js"></script>
+		<script src="js/map.js"></script>
+		<script
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfkvgHThjykI1BTVBg42bu1MdwGCcbgsg&callback=initMap&libraries=&v=weekly"
+			async
+			defer
+		></script>
+	</body>
 </html>

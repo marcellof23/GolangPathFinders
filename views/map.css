@@ -1,0 +1,25 @@
+.body2 {
+	color: #fff;
+	background-color: #3a3a31;
+	display: grid;
+	height: 100%;
+	margin: 0;
+	place-items: center;
+}
+#welcomeText {
+	height: 50px;
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+}
+#map {
+	width: 95%;
+	max-height: 650px;
+	height: 650px;
+}
+.inputGroups {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	width: 40%;
+	height: 50px;
+}

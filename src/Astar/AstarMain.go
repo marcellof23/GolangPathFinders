@@ -85,7 +85,6 @@ func heuristicFunction(x, y Node) float64 {
 }
 
 // func TestAstar(t *testing.T) {
-
 // 	var arrNodes [4]Node
 // 	arrNodes[0] = NewPoints(2.14, 3.15)
 // 	arrNodes[1] = NewPoints(1.0, 7.0)
@@ -101,8 +100,8 @@ func heuristicFunction(x, y Node) float64 {
 // }
 
 func PrintAstar() {
-
-	var arrNodes [8]Node
+	N := 8
+	arrNodes := make([]Node, N)
 	arrNodes[0] = NewPoints(-6.892616, 107.610423, 0)
 	arrNodes[1] = NewPoints(-6.890464174304161, 107.60724717865062, 1)
 	arrNodes[2] = NewPoints(-6.887407, 107.611507, 2)
@@ -140,6 +139,37 @@ func StringAstar() string {
 	arrNodes[3] = NewPoints(5.0, 6.0, 3)
 	g := CreateGraph().AddEdge(arrNodes[0], arrNodes[1]).AddEdge(arrNodes[1], arrNodes[2]).AddEdge(arrNodes[0], arrNodes[3])
 	p := astar(g, arrNodes[2], arrNodes[3], HeuristicHaversine, HeuristicHaversine)
+	fmt.Print("Path : ")
+	str := ""
+	for _, n := range p {
+		str += n.String()
+	}
+	return str
+}
+
+func StringAstars(N int) string {
+	x := 5
+	y := 10
+	Source := 0
+	Dest := 5
+	twodim := make([][]int, y)
+	for i := range twodim {
+		twodim[i] = make([]int, x)
+	}
+	arrNodes := make([]Node, N)
+	for i := 0; i < N; i++ {
+		//arrNodes[i] = NewPoints()
+	}
+	g := CreateGraph()
+	for i := 0; i < x/2+1; i++ {
+		for j := 0; j < y/2+1; j++ {
+			if twodim[i][j] == 1 {
+				g.AddEdge(arrNodes[i], arrNodes[j])
+			}
+
+		}
+	}
+	p := astar(g, arrNodes[Source], arrNodes[Dest], HeuristicHaversine, HeuristicHaversine)
 	fmt.Print("Path : ")
 	str := ""
 	for _, n := range p {
