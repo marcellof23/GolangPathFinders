@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Apr 05 11:01:10 2021
+# Make data base, printed on Mon Apr 05 16:48:45 2021
 
 # Variables
 
@@ -27,7 +27,7 @@ ProgramW6432 = C:\Program Files
 # environment
 LOCALAPPDATA = C:\Users\user\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-6ac9e436-255e-4ae6-bfbc-a1c4c430a58c-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-9e2b8903-085f-41f5-9646-d9813de85e9c-sock
 # environment
 VSCODE_CWD = C:\Users\user\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -66,7 +66,6 @@ TMP = C:\Users\user\AppData\Local\Temp
 PROCESSOR_ARCHITEW6432 = AMD64
 # environment
 ChocolateyInstall = C:\ProgramData\chocolatey
- 
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -86,7 +85,8 @@ MFLAGS = -pqrR
 # environment
 PSModulePath = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
 # automatic
-+D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
++D = $(patsubst %/,%,$(patsubst  
+%\,%,$(dir $+)))
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST := Makefile
 # automatic
@@ -188,6 +188,8 @@ NVM_SYMLINK = C:\Program Files\nodejs
 # environment
 PROCESSOR_ARCHITECTURE = x86
 # environment
+GOMODCACHE = C:\Users\user\go\pkg\mod
+# environment
 DriverData = C:\Windows\System32\Drivers\DriverData
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
@@ -199,6 +201,8 @@ ELECTRON_RUN_AS_NODE = 1
 TEMP = C:\Users\user\AppData\Local\Temp
 # environment
 VSCODE_IPC_HOOK = \\.\pipe\680802a3ebd40da3f83beb9d3e841b70-1.55.0-main-sock
+# environment
+GOPROXY = https://proxy.golang.org,direct
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -207,7 +211,8 @@ VSCODE_IPC_HOOK = \\.\pipe\680802a3ebd40da3f83beb9d3e841b70-1.55.0-main-sock
 SUFFIXES := 
 # environment
 ALLUSERSPROFILE = C:\ProgramData
-# environment
+# 
+ environment
 SESSIONNAME = Console
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync load
@@ -218,9 +223,10 @@ ComSpec = C:\Windows\system32\cmd.exe
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 9, GenuineIntel
 # variable set hash-table stats:
-# Load=102/1024=10%, Rehash=0, Collisions=7/129=5%
+# Load=104/1024=10%, Rehash=0, Collisions=7/131=5%
 
-# Pattern-specific Variable Values
+# Pattern-specific Variable V 
+alues
 
 # No pattern-specific variable values.
 
@@ -269,15 +275,15 @@ all:
 
 # No 'vpath' search paths.
 
-# No general ('VPATH' variable) search path.
+# No general ('VPATH' varia 
+ble) search path.
 
 # strcache buffers: 1 (0) / strings = 16 / storage = 112 B / avg = 7 B
-# current buf: siz 
-e = 8174 B / used = 112 B / count = 16 / avg = 7 B
+# current buf: size = 8174 B / used = 112 B / count = 16 / avg = 7 B
 
 # strcache performance: lookups = 21 / hit rate = 23%
 # hash-table stats:
 # Load=16/8192=0%, Rehash=0, Collisions=0/21=0%
-# Finished Make data base on Mon Apr 05 11:01:10 2021
+# Finished Make data base on Mon Apr 05 16:48:45 2021
 
  
