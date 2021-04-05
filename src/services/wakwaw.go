@@ -2,6 +2,7 @@ package services
 
 import (
 	"AStarPathFinder/src/Astar"
+	"AStarPathFinder/src/Models"
 	"AStarPathFinder/src/algorithm"
 	"fmt"
 	"io/ioutil"
@@ -54,8 +55,21 @@ func Calc() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		c.Header("Content-Type", "application/json")
 		c.JSON(http.StatusOK, map[string]string{
-			"data":   "marcello wakwaw",
+			"data":   "marcello wakwaws",
 			"jesson": Astar.StringAstar(),
+		})
+		c.JSON(http.StatusOK, map[string]string{
+			"datas": "hello from yey",
+		})
+	}
+}
+
+func PostData() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		var astardata Models.AstarData
+		c.BindJSON(&astardata)
+		c.JSON(http.StatusOK, map[string]string{
+			"Path": Astar.StringAstars(astardata),
 		})
 	}
 }
