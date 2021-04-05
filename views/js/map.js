@@ -29,19 +29,13 @@ graphForm.addEventListener("submit", e =>{
         const lines = reader.result.split('\n').map((line)=>{
             return line.split(',');
         });
-        console.log(lines);
-        console.log(parseInt(lines[0][0]));
         for(let i=1;i<1+parseInt(lines[0][0]);i++){
             placeMarkerAndPanTo({lat:parseFloat(lines[i][1]),lng:parseFloat(lines[i][2])});
         }
         for(let i=1+parseInt(lines[0][0]);i<1+2*parseInt(lines[0][0]);i++){
-            console.log(lines[i][0]);
             let row = lines[i][0].split(" ");
-            console.log(row);
             for(let j=0;j<parseInt(lines[0][0]);j++){
                 if(parseInt(row[j])===parseInt("1")){
-                    console.log(row[j] , "===" , "1" , "is " , String(row[j][0])==String("1"));
-                    console.log(typeof row[j], typeof "1");
                     addLines({lat: markers[i-1-parseInt(lines[0][0])].position.lat(),lng:markers[i-1-parseInt(lines[0][0])].position.lng()},{lat: markers[j].position.lat(),lng: markers[j].position.lng()});
                 }
             }
