@@ -63,6 +63,9 @@ const placeMarkerAndPanTo = (coords) => {
     marker.addListener('contextmenu', (e)=>{
         handleNodeRightClick(marker);
     })
+    marker.addListener('dblclick', (e)=>{
+        handleNodeDoubleClick(marker);
+    })
 
     window.markers.push(marker);
     window.map.panTo(coords);
@@ -94,6 +97,9 @@ const addLines = (sourceCoords,destinationCoords) => {
             repeat: "30px",
         }]
     })
+    polyline.addListener('contextmenu',(e)=>{
+        handlePolylineRightClick(polyline);
+    })
     polyline.setMap(window.map);
     window.polylines.push(polyline);
 }
@@ -117,4 +123,17 @@ const handleNodeRightClick = (marker)=>{
     } 
     activeMarkers.push(marker)
     marker.setIcon("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
+}
+
+const handleNodeDoubleClick = (marker)=>{
+    marker.setMap(null);
+    window.markers = window.markers.filter((m)=>{
+        return m.position.lat() != marker.position.lat() || m.position.lng() != marker.position.lng();
+    })
+}
+
+const handlePolylineRightClick = (polyline)=>{
+    polyline.setMap(null);
+    // window.polyline
+    console.log(polyline.getPath());
 }
