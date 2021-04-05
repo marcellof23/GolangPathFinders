@@ -59,8 +59,6 @@ const placeMarkerAndPanTo = (coords) => {
     });
     marker.addListener('click', (e)=>{
         handleNodeLeftClick(marker);
-        console.log(marker.position.lat());
-        console.log(marker.position.lng());
     })
     marker.addListener('contextmenu', (e)=>{
         handleNodeRightClick(marker);
@@ -114,11 +112,9 @@ const handleNodeLeftClick = (marker)=>{
 
 const handleNodeRightClick = (marker)=>{
     if(activeMarkers.length==2){
-        console.log("Penuh");
         activeMarkers[0].setIcon("http://maps.google.com/mapfiles/ms/icons/red-dot.png");
         activeMarkers.shift();
     } 
-    console.log(activeMarkers);
     activeMarkers.push(marker)
     marker.setIcon("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
 }
