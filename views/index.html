@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<link
 			rel="stylesheet"
@@ -11,7 +10,7 @@
 		<link rel="stylesheet" href="map.css" />
 		<link rel="stylesheet" href="index.css" />
 		<link rel="stylesheet" href="util.css" />
-    <link rel="icon" href="compass-icon.png" type="image/icon type">
+		<link rel="icon" href="compass-icon.png" type="image/icon type" />
 		<title>Tucil 3 Stima</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 	</head>
@@ -62,14 +61,22 @@
 
 		<!-- Cli -->
 		<section class="cli">
-			<div class="container grid">
-				<img src="images/cli.png" alt="" />
-				<div class="card">
-					<h3>Easy to use, cross platform CLI</h3>
-				</div>
-				<div class="card">
-					<h3>Deploy in seconds</h3>
-				</div>
+			<div class="card" id="readme">
+				<h3 id="readme-text">Readme</h3>
+				Di dalam Bios, terdapat sebuah set fungsi yang dapat memberikan arahan
+				pada CPU. Salah satu cara dalam mengakses fitur Bios adalah melalui
+				interrupts. Pada sistem operasi kelompok kami, kami menggunakan sebuah
+				tabel dari vektor interrupt yang mengandung alamat segment dari handlers
+				interrupt. Nomor dari interrupt yang digunakan adalah indeks dari tabel
+				tersebut, seperti contohnya INT 10h, yang merupakan indeks yang sering
+				digunakan dalam program ini karena vektor ini mempersiapkan handler
+				interrupt dengan tipe real mode yang memberikan servis grafis dan video,
+				output karakter dan string, sekaligus grafik secara primitif (membaca
+				dan menulis pixel dalam mode grafik). Pada sistem OS kami, interrupt
+				dipanggil dengan fungsi interrupt yang menerima 5 parameter, yaitu
+				number yang mengacu pada indeks pada vektor interrupt, dan parameter AX,
+				BX, CX, DX yang akan disesuaikan pada kebutuhan fungsi interrupt yang
+				akan dipanggil.
 			</div>
 		</section>
 		<div class="body2">

@@ -81,7 +81,14 @@ pre {
 .navbar .flex {
 	justify-content: space-between;
 }
-
+#readme {
+	height: 30%;
+	width: 80%;
+	margin-bottom: 50px;
+}
+#readme-text {
+	font-weight: 700;
+}
 /* Showcase */
 .showcase {
 	height: 450px;
@@ -152,6 +159,11 @@ pre {
 }
 
 /* Cli */
+.cli {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .cli .grid {
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(2, 1fr);
