@@ -173,20 +173,27 @@ const addLines = (sourceCoords, destinationCoords) => {
 	let polyline = new google.maps.Polyline({
 		path: [sourceCoords, destinationCoords],
 		geodesic: true,
-		strokeOpacity: 0,
-		icons: [
-			{
-				icon: lineSymbol,
-				offset: "0",
-				repeat: "30px",
-			},
-		],
+		strokeColor: "red",
+		strokeOpacity: 1.0,
+		strokeWeight: 2,
 	});
 	polyline.addListener("contextmenu", (e) => {
 		handlePolylineRightClick(polyline);
 	});
 	polyline.setMap(window.map);
 	window.polylines.push(polyline);
+};
+
+const addLinesV2 = (sourceCoords, destinationCoords) => {
+	for(let k=0;k<window.polylines.length;k++){
+		let polyline = window.polylines[k];
+		console.log(polyline.getPath().Nb[0].lat());
+		if(polyline.getPath().Nb[0].lat()==sourceCoords.position.lat() && polyline.getPath().Nb[0].lng()==sourceCoords.position.lng() && 
+		polyline.getPath().Nb[1].lat()==destinationCoords.position.lat() && polyline.getPath().Nb[1].lng()==destinationCoords.position.lng() || (polyline.getPath().Nb[1].lat()==sourceCoords.position.lat() && polyline.getPath().Nb[1].lng()==sourceCoords.position.lng() && 
+		polyline.getPath().Nb[0].lat()==destinationCoords.position.lat() && polyline.getPath().Nb[0].lng()==destinationCoords.position.lng())){
+			window.polylines[k].setOptions({strokeColor: 'green', strokeWeight: 4});
+		}
+	}
 };
 
 const handleNodeLeftClick = (marker) => {
@@ -283,8 +290,7 @@ const handleFetchShortestPath = async ()=>{
 				break;
 			}
 		}
-		let boolMatrix = [...Array(markers.length)].map(x=>Array(markers.length).fill(0))
-		console.table(boolMatrix);
+		let boolMatrix = [...Array(markers.length)].map(x=>Array(markers.length).fill(0));
 		for(let i=0;i<markers.length;i++){
 			for(let j=0;j<markers.length;j++){
 				for(let k=0;k<polylines.length;k++){
@@ -307,18 +313,10 @@ const handleFetchShortestPath = async ()=>{
 				}
 			}
 		}
-		console.table(boolMatrix);
 		let coordinates = "";
 		for(let i=0;i<markers.length;i++){
 			coordinates+= `${markers[i].position.lat()} ${markers[i].position.lng()},`
 		}
-		console.log({
-			numnodes: markers.length,
-			sourcenode: sourceNode,
-			destnode: destNode,
-			matrixrelation: matrixRelation.slice(0,-1),
-			coordinates: coordinates.slice(0,-1)
-		});
 		const res = await postData("http://localhost:5000/api/graphdata",{
 			numnodes: markers.length,
 			sourcenode: sourceNode,
@@ -326,11 +324,22 @@ const handleFetchShortestPath = async ()=>{
 			matrixrelation: matrixRelation.slice(0,-1),
 			coordinates: coordinates.slice(0,-1)
 		})
-		console.log(res);
+		console.table(boolMatrix);
+		console.log(coordinates.slice(0,-1));
+		console.log({
+			numnodes: markers.length,
+			sourcenode: sourceNode,
+			destnode: destNode,
+			matrixrelation: matrixRelation.slice(0,-1),
+			coordinates: coordinates.slice(0,-1)
+		})
 		let indexes = res.Path.split(",");
-		console.log(indexes);
 		for(let i=0;i<indexes.length;i++){
 			window.markers[parseInt(indexes[i])].setIcon("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
+		}
+		for(let i=0;i<indexes.length-1;i++){
+			addLinesV2(window.markers[parseInt(indexes[i])],window.markers[parseInt(indexes[i+1])]);
+			addLinesV2(window.markers[parseInt(indexes[i+1])],window.markers[parseInt(indexes[i])]);
 		}
 	}
 }
