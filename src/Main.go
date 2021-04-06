@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"os"
 
 	"github.com/marcellof23/GolangPathFinders/src/services"
 
@@ -13,7 +14,10 @@ func main() {
 	router := gin.Default()
 
 	router.Use(static.Serve("/", static.LocalFile("./views", true)))
-
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
 	api := router.Group("/api")
 	{
 		api.GET("/", func(c *gin.Context) {
@@ -29,4 +33,5 @@ func main() {
 	api.POST("/graph", services.ParseFile())
 	api.POST("/graphdata", services.PostData())
 	router.Run("127.0.0.1:5000")
+	http.ListenAndServe(":"+port, nil)
 }
