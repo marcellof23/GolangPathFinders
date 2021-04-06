@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Apr 06 11:33:22 2021
+# Make data base, printed on Tue Apr 06 22:27:37 2021
 
 # Variables
 
@@ -27,7 +27,8 @@ ProgramW6432 = C:\Program Files
 # environment
 LOCALAPPDATA = C:\Users\user\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-276ed7c8-9ee0-4827-beb4-2bf3837132cf-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-a7766cb2 
+-598f-470a-bcb1-820d90b5de29-sock
 # environment
 VSCODE_CWD = C:\Users\user\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -39,7 +40,7 @@ GOPATH = C:\Users\user\go
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_3508_PTVYAZTXUFKHTCWI
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_17212_MNSPRQSQGKMENBTY
 # environment
 CommonProgramFiles = C:\Program Files (x86)\Common Files
 # environment
@@ -93,7 +94,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 3508
+VSCODE_PID = 17212
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # environment
@@ -173,8 +174,7 @@ USERDOMAIN_ROAMINGPROFILE = DESKTOP-0E6RKI3
 # environment
 NUMBER_OF_PROCESSORS = 4
 # environment
-PU 
-BLIC = C:\Users\Public
+PUBLIC = C:\Users\Public
 # environment
 ProgramData = C:\ProgramData
 # environment
@@ -188,6 +188,8 @@ NVM_SYMLINK = C:\Program Files\nodejs
 # environment
 PROCESSOR_ARCHITECTURE = x86
 # environment
+GOMODCACHE = C:\Users\user\go\pkg\mod
+# environment
 DriverData = C:\Windows\System32\Drivers\DriverData
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
@@ -199,6 +201,8 @@ ELECTRON_RUN_AS_NODE = 1
 TEMP = C:\Users\user\AppData\Local\Temp
 # environment
 VSCODE_IPC_HOOK = \\.\pipe\680802a3ebd40da3f83beb9d3e841b70-1.55.0-main-sock
+# environment
+GOPROXY = https://proxy.golang.org,direct
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -218,7 +222,7 @@ ComSpec = C:\Windows\system32\cmd.exe
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 9, GenuineIntel
 # variable set hash-table stats:
-# Load=102/1024=10%, Rehash=0, Collisions=7/129=5%
+# Load=104/1024=10%, Rehash=0, Collisions=7/131=5%
 
 # Pattern-specific Variable Values
 
@@ -226,7 +230,7 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 9, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/user/Documents/GolangPathfinder, mtime 1617544491): 12 files, no impossibilities.
+# . (key c:/Users/user/Documents/GolangPathfinder, mtime 1617704883): 12 files, no impossibilities.
 
 # 12 files, no impossibilities in 1 directories.
 
@@ -269,7 +273,8 @@ all:
 
 # No 'vpath' search paths.
 
-# No general ('VPATH' variable) search path.
+# No general ('VPATH' var 
+iable) search path.
 
 # strcache buffers: 1 (0) / strings = 16 / storage = 112 B / avg = 7 B
 # current buf: size = 8174 B / used = 112 B / count = 16 / avg = 7 B
@@ -277,6 +282,6 @@ all:
 # strcache performance: lookups = 21 / hit rate = 23%
 # hash-table stats:
 # Load=16/8192=0%, Rehash=0, Collisions=0/21=0%
-# Finished Make data base on Tue Apr 06 11:33:22 2021
+# Finished Make data base on Tue Apr 06 22:27:37 2021
 
  
