@@ -327,6 +327,11 @@ const handleFetchShortestPath = async ()=>{
 			coordinates: coordinates.slice(0,-1)
 		})
 		console.log(res);
+		let indexes = res.Path.split(",");
+		console.log(indexes);
+		for(let i=0;i<indexes.length;i++){
+			window.markers[parseInt(indexes[i])].setIcon("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
+		}
 	}
 }
 

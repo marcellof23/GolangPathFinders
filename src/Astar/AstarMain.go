@@ -172,9 +172,8 @@ func StringAstars(astardata Models.AstarData) string {
 	str := ""
 	for i, n := range x {
 		if i == 0 {
-			str += "("
 		} else if i == (len(x) - 1) {
-			str += n.String() + ")"
+			str += n.String()
 			continue
 		}
 		u, err := strconv.Atoi(x[i].String())
