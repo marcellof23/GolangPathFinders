@@ -1,27 +1,27 @@
-💫 Tugas Kecil 3 IF2211 Strategi Algoritma 💫
-💫 Penyelesaian Shortest Path Dengan Algoritma A* 💫
-Description
+# 💫 Tugas Kecil 3 IF2211 Strategi Algoritma 💫
+# 💫 Penyelesaian Shortest Path Dengan Algoritma A* 💫
+### Description
 Algoritma A* atau biasa disebut dengan A-star merupakan salah satu algoritma yang termasuk dalam kategori
 metode pencarian yang memiliki informasi (informed search method). Algoritma ini sangat efektif digunakan
 sebagai solusi proses path finding (pencari jalan). Algoritma ini mencari jarak rute terpendek yang
 akan ditempuh suatu point awal (source point) hinigga ke objek tujuan  (destination point). Teknik pencarian yang
 digunakan dalam aplikasi berbasis web kami ini adalah menggunakan penerapan Algoritma A* dengan fungsi heuristic pada google maps API. ⭐️ ✨ Algoritma A* ✨ ⭐️
 
-Requirements
+### Requirements
 go version go1.16.3 windows/amd64
 GNU Make 4.3
 
-How To Start
-💻 For Windows 💻
+### How To Start
+##### 💻 For Windows 💻
 run from the command line:
 make dev
 open localhost:5000 on the browser
 
-💫 Features 💫
+### 💫 Features 💫
 1. Load nodes from src/constants
 2. Manually draw nodes in the maps API
 
-💫 Controls 💫
+### 💫 Controls 💫
 A. Map
 <ul>
     <li>Basic google maps controls</li>
@@ -42,9 +42,9 @@ C. Polylines
 
 🖤 Enjoy the app! 🖤
 
-Note :
+### Note :
 Don't use 127.0.0.1 to access localhost as the app doesn't allow CORS
 
-Made by
-Jesson Gosal Yo
+### Made by
+[Jesson Gosal Yo](https://www.linkedin.com/in/jesson-yo/)\
 Marcello Faria
