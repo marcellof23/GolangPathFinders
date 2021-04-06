@@ -70,7 +70,8 @@ function SubmitControl(controlDiv) {
 }
 
 function initMap() {
-	const bandung = { lat: -6.9175, lng: 107.6191 };
+	// const bandung = { lat: -6.9175, lng: 107.6191 };
+	const bandung = {lat: -6.9524, lng: 107.6511};
 	google.maps.event.trigger(map, "resize");
 	window.map = new google.maps.Map(document.getElementById("map"), {
 		zoom: 17,
@@ -334,8 +335,14 @@ const handleFetchShortestPath = async ()=>{
 			coordinates: coordinates.slice(0,-1)
 		})
 		let indexes = res.Path.split(",");
+		const infowindow = new google.maps.InfoWindow({
+			content: `<div style="color:black">${res.Distance} km</div>`,
+		  });
 		for(let i=0;i<indexes.length;i++){
 			window.markers[parseInt(indexes[i])].setIcon("http://maps.google.com/mapfiles/ms/icons/green-dot.png");
+			if(i==indexes.length-1){
+				infowindow.open(window.map, window.markers[parseInt(indexes[i])]);
+			}
 		}
 		for(let i=0;i<indexes.length-1;i++){
 			addLinesV2(window.markers[parseInt(indexes[i])],window.markers[parseInt(indexes[i+1])]);
