@@ -196,6 +196,13 @@ const handleNodeLeftClick = (marker) => {
 			},
 			{ lat: marker.position.lat(), lng: marker.position.lng() }
 		);
+		addLines(
+			{ lat: marker.position.lat(), lng: marker.position.lng() },
+			{
+				lat: pointedMarkers[0].position.lat(),
+				lng: pointedMarkers[0].position.lng(),
+			},
+		)
 		marker.setIcon("http://maps.google.com/mapfiles/ms/icons/red-dot.png");
 		pointedMarkers[0].setIcon(
 			"http://maps.google.com/mapfiles/ms/icons/red-dot.png"
