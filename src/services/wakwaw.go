@@ -1,15 +1,16 @@
 package services
 
 import (
-	"AStarPathFinder/src/Astar"
-	"AStarPathFinder/src/Models"
-	"AStarPathFinder/src/algorithm"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 	"path/filepath"
+
+	"github.com/marcellof23/GolangPathFinders/src/Astar"
+	"github.com/marcellof23/GolangPathFinders/src/Models"
+	"github.com/marcellof23/GolangPathFinders/src/algorithm"
 
 	"github.com/gin-gonic/gin"
 )

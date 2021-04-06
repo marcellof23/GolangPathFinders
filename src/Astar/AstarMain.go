@@ -3,11 +3,12 @@ package Astar
 // go test -v ./...
 
 import (
-	"AStarPathFinder/src/Models"
 	"fmt"
 	"math"
 	"strconv"
 	"strings"
+
+	"github.com/marcellof23/GolangPathFinders/src/Models"
 )
 
 var distance string

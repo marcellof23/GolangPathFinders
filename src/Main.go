@@ -1,8 +1,9 @@
 package main
 
 import (
-	"AStarPathFinder/src/services"
 	"net/http"
+
+	"github.com/marcellof23/GolangPathFinders/src/services"
 
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
