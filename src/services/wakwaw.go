@@ -69,7 +69,9 @@ func PostData() gin.HandlerFunc {
 		var astardata Models.AstarData
 		c.BindJSON(&astardata)
 		c.JSON(http.StatusOK, map[string]string{
-			"Path": Astar.StringAstars(astardata),
+			"Path":      Astar.StringAstars(astardata),
+			"Distance":  Astar.HeuristicHaversineJson(),
+			"Bobotedge": Astar.EdgeJson(),
 		})
 	}
 }

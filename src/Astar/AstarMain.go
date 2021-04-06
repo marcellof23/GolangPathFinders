@@ -10,6 +10,9 @@ import (
 	"strings"
 )
 
+var distance string
+var BobotEdge []float64
+
 type Points struct {
 	lat float64
 	lng float64
@@ -39,7 +42,7 @@ func (p Points) Idx() int {
 }
 
 func (p Points) String() string {
-	return fmt.Sprintf("(%f, %f, %d)", p.Lat(), p.Lng(), p.Idx())
+	return fmt.Sprintf("%d", p.Idx())
 }
 
 type Graphs map[Node][]Node
@@ -154,20 +157,54 @@ func StringAstars(astardata Models.AstarData) string {
 
 	g := CreateGraph()
 	strMatrix := strings.Split(astardata.MatrixRelation, ",")
+	cnt := 0
 	for i := 0; i < len(strMatrix); i++ {
 		strMatrixIn := strings.Fields(strMatrix[i])
 		for j := 0; j < len(strMatrix); j++ {
 			if strMatrixIn[j] == "1" {
+				cnt++
 				g.AddEdge(arrNodes[i], arrNodes[j])
 			}
 		}
 	}
-
 	x := astar(g, arrNodes[astardata.SourceNode], arrNodes[astardata.DestNode], HeuristicHaversine, HeuristicHaversine)
 	fmt.Print("Path : ")
 	str := ""
-	for _, n := range x {
-		str += n.String()
+	for i, n := range x {
+		if i == 0 {
+			str += "("
+		} else if i == (len(x) - 1) {
+			str += n.String() + ")"
+			continue
+		}
+		u, err := strconv.Atoi(x[i].String())
+		v, err := strconv.Atoi(x[i+1].String())
+		BobotEdge = append(BobotEdge, HeuristicHaversine(arrNodes[u], arrNodes[v]))
+		if err != nil {
+
+		}
+		str += n.String() + ","
+	}
+	dist := HeuristicHaversine(arrNodes[astardata.SourceNode], arrNodes[astardata.DestNode])
+	distance = strconv.FormatFloat(dist, 'f', 6, 64)
+	return str
+}
+
+func HeuristicHaversineJson() string {
+	return distance
+}
+
+func EdgeJson() string {
+	str := ""
+	for i, _ := range BobotEdge {
+		if i == 0 {
+			str += "("
+		} else if i == (len(BobotEdge) - 1) {
+			str += strconv.FormatFloat(BobotEdge[i], 'f', 6, 64) + ")"
+			continue
+		}
+		str += strconv.FormatFloat(BobotEdge[i], 'f', 6, 64) + ","
+
 	}
 	return str
 }
