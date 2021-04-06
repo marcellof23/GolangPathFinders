@@ -185,7 +185,7 @@ func StringAstars(astardata Models.AstarData) string {
 		}
 		str += n.String() + ","
 	}
-	dist := Dist
+	dist := Dist * -1
 	distance = strconv.FormatFloat(dist, 'f', 6, 64)
 	return str
 }
