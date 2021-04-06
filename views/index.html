@@ -63,27 +63,62 @@
 		<section class="cli">
 			<div class="card" id="readme">
 				<h3 id="readme-text">Readme</h3>
-				Di dalam Bios, terdapat sebuah set fungsi yang dapat memberikan arahan
-				pada CPU. Salah satu cara dalam mengakses fitur Bios adalah melalui
-				interrupts. Pada sistem operasi kelompok kami, kami menggunakan sebuah
-				tabel dari vektor interrupt yang mengandung alamat segment dari handlers
-				interrupt. Nomor dari interrupt yang digunakan adalah indeks dari tabel
-				tersebut, seperti contohnya INT 10h, yang merupakan indeks yang sering
-				digunakan dalam program ini karena vektor ini mempersiapkan handler
-				interrupt dengan tipe real mode yang memberikan servis grafis dan video,
-				output karakter dan string, sekaligus grafik secara primitif (membaca
-				dan menulis pixel dalam mode grafik). Pada sistem OS kami, interrupt
-				dipanggil dengan fungsi interrupt yang menerima 5 parameter, yaitu
-				number yang mengacu pada indeks pada vektor interrupt, dan parameter AX,
-				BX, CX, DX yang akan disesuaikan pada kebutuhan fungsi interrupt yang
-				akan dipanggil.
+				💫 Tugas Kecil 3 IF2211 Strategi Algoritma 💫
+				💫 Penyelesaian Shortest Path Dengan Algoritma A* 💫
+				Description
+				Algoritma A* atau biasa disebut dengan A-star merupakan salah satu algoritma yang termasuk dalam kategori
+				metode pencarian yang memiliki informasi (informed search method). Algoritma ini sangat efektif digunakan
+				sebagai solusi proses path finding (pencari jalan). Algoritma ini mencari jarak rute terpendek yang
+				akan ditempuh suatu point awal (source point) hinigga ke objek tujuan  (destination point). Teknik pencarian yang
+				digunakan dalam aplikasi berbasis web kami ini adalah menggunakan penerapan Algoritma A* dengan fungsi heuristic pada google maps API. ⭐️ ✨ Algoritma A* ✨ ⭐️<br>
+				<br>
+				Requirements<br>
+				go version go1.16.3 windows/amd64<br>
+				GNU Make 4.3<br>
+				<br>
+				How To Start<br>
+				💻 For Windows 💻<br>
+				run from the command line:<br>
+				make dev<br>
+				open localhost:5000 on the browser<br>
+				<br>
+				💫 Features 💫<br>
+				1. Load nodes from src/constants<br>
+				2. Manually draw nodes in the maps API<br>
+				<br>
+				💫 Controls 💫<br>
+				A. Map<br>
+				<ul>
+					<li>Basic google maps controls</li>
+					<li>Left click to draw a marker</li>
+					<li>Clear Nodes to remove all markers and polylines</li>
+					<li>Find shortest path to get the path and distance between 2 markers</li>
+				</ul>
+				B. Marker<br>
+				<ul>
+					<li>Left click two markers to connect them with an edge</li>
+					<li>Right click marker to select them as a source/destination marker</li>
+					<li>Double Click to remove marker</li>
+				</ul>
+				C. Polylines<br>
+				<ul>
+					<li>Double Click to remove polyline</li>
+				</ul>
+				
+				🖤 Enjoy the app! 🖤<br>
+				
+				Note :<br>
+				Don't use 127.0.0.1 to access localhost as the app doesn't allow CORS<br>
+				<br>
+				Made by<br>
+				Jesson Gosal Yo<br>
+				Marcello Faria<br>
 			</div>
 		</section>
 		<div class="body2">
 			<div id="welcomeText"></div>
 
 			<div id="map"></div>
-			<!--<button id="marcello">"Tangkap Saya" -Marcello</button>-->
 			<div class="inputGroups">
 				<form class="fileForm" id="graphForm">
 					<div class="input-group">
