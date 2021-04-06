@@ -4,6 +4,9 @@ window.polylines = [];
 let activeMarkers = [];
 let pointedMarkers = [];
 
+let sourceMarker = null;
+let destinationMarker = null;
+
 const lineSymbol = {
 	path: "M 0,-1 0,1",
 	strokeOpacity: 1,
@@ -62,7 +65,7 @@ function SubmitControl(controlDiv) {
 	controlUI.appendChild(controlText);
 
 	controlUI.addEventListener("click", () => {
-		clearMarker();
+		handleFetchShortestPath();
 	});
 }
 
@@ -221,6 +224,8 @@ const handleNodeRightClick = (marker) => {
 		activeMarkers.shift();
 	}
 	activeMarkers.push(marker);
+	sourceMarker = activeMarkers[0];
+	destinationMarker = activeMarkers[1];
 	marker.setIcon("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
 };
 
@@ -253,3 +258,91 @@ const handlePolylineRightClick = (polyline) => {
 	// console.log(polyline.getPath().Nb[1].lat() , polyline.getPath().Nb[1].lng());
 	console.log(window.polylines)
 };
+
+function isMarkerEqual(firstMarker, secondMarker){
+	return firstMarker.position.lat()==secondMarker.position.lat() && firstMarker.position.lng()==secondMarker.position.lng()
+}
+
+const handleFetchShortestPath = async ()=>{
+	if(!sourceMarker || !destinationMarker){
+		alert("Please choose a source and destination node");
+	} else{
+		console.log(sourceMarker.position.lat(), sourceMarker.position.lng());
+		console.log(destinationMarker.position.lat(), destinationMarker.position.lng());
+		let sourceNode = -1;
+		let destNode = -1;
+		for(let i=0;i<markers.length;i++){
+			if(isMarkerEqual(markers[i],activeMarkers[0])){
+				sourceNode = i;
+				break;
+			}
+		}
+		for(let i=0;i<markers.length;i++){
+			if(isMarkerEqual(markers[i],activeMarkers[1])){
+				destNode = i;
+				break;
+			}
+		}
+		let boolMatrix = [...Array(markers.length)].map(x=>Array(markers.length).fill(0))
+		console.table(boolMatrix);
+		for(let i=0;i<markers.length;i++){
+			for(let j=0;j<markers.length;j++){
+				for(let k=0;k<polylines.length;k++){
+					let polyline = polylines[k];
+					if(polyline.getPath().Nb[0].lat()==markers[i].position.lat() && polyline.getPath().Nb[0].lng()==markers[i].position.lng() && 
+					polyline.getPath().Nb[1].lat()==markers[j].position.lat() && polyline.getPath().Nb[1].lng()==markers[j].position.lng() || (polyline.getPath().Nb[1].lat()==markers[i].position.lat() && polyline.getPath().Nb[1].lng()==markers[i].position.lng() && 
+					polyline.getPath().Nb[0].lat()==markers[j].position.lat() && polyline.getPath().Nb[0].lng()==markers[j].position.lng())){
+						boolMatrix[i][j] = 1;
+					}
+				}
+			}
+		}
+		let matrixRelation = "";
+		for(let i=0;i<markers.length;i++){
+			for(let j=0;j<markers.length;j++){
+				if(j==markers.length-1){
+					matrixRelation += `${boolMatrix[i][j]},`
+				} else{
+					matrixRelation += `${boolMatrix[i][j]} `
+				}
+			}
+		}
+		console.table(boolMatrix);
+		let coordinates = "";
+		for(let i=0;i<markers.length;i++){
+			coordinates+= `${markers[i].position.lat()} ${markers[i].position.lng()},`
+		}
+		console.log({
+			numnodes: markers.length,
+			sourcenode: sourceNode,
+			destnode: destNode,
+			matrixrelation: matrixRelation.slice(0,-1),
+			coordinates: coordinates.slice(0,-1)
+		});
+		const res = await postData("http://localhost:5000/api/graphdata",{
+			numnodes: markers.length,
+			sourcenode: sourceNode,
+			destnode: destNode,
+			matrixrelation: matrixRelation.slice(0,-1),
+			coordinates: coordinates.slice(0,-1)
+		})
+		console.log(res);
+	}
+}
+
+async function postData(url = '', data = {}) {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
+    body: JSON.stringify(data)
+  });
+  return response.json();
+}
