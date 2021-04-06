@@ -228,7 +228,21 @@ const handleNodeDoubleClick = (marker) => {
 };
 
 const handlePolylineRightClick = (polyline) => {
-	polyline.setMap(null);
-	// window.polyline
-	console.log(polyline.getPath());
+	window.polylines = window.polylines.filter((p)=>{
+		if(polyline.getPath().Nb[0].lat()==p.getPath().Nb[0].lat() && polyline.getPath().Nb[0].lng()==p.getPath().Nb[0].lng() && 
+		polyline.getPath().Nb[1].lat()==p.getPath().Nb[1].lat() && polyline.getPath().Nb[1].lng()==p.getPath().Nb[1].lng() || (polyline.getPath().Nb[1].lat()==p.getPath().Nb[0].lat() && polyline.getPath().Nb[1].lng()==p.getPath().Nb[0].lng() && 
+		polyline.getPath().Nb[0].lat()==p.getPath().Nb[1].lat() && polyline.getPath().Nb[0].lng()==p.getPath().Nb[1].lng())){
+			p.setMap(null);
+		}
+		return !(polyline.getPath().Nb[0].lat()==p.getPath().Nb[0].lat() && polyline.getPath().Nb[0].lng()==p.getPath().Nb[0].lng() && 
+		polyline.getPath().Nb[1].lat()==p.getPath().Nb[1].lat() && polyline.getPath().Nb[1].lng()==p.getPath().Nb[1].lng()) 
+		&& 
+		!(polyline.getPath().Nb[1].lat()==p.getPath().Nb[0].lat() && polyline.getPath().Nb[1].lng()==p.getPath().Nb[0].lng() && 
+		polyline.getPath().Nb[0].lat()==p.getPath().Nb[1].lat() && polyline.getPath().Nb[0].lng()==p.getPath().Nb[1].lng())
+	})
+	// console.log(polyline.getPath());
+	// console.table(polyline.getPath());
+	// console.log(polyline.getPath().Nb[0].lat() , polyline.getPath().Nb[0].lng());
+	// console.log(polyline.getPath().Nb[1].lat() , polyline.getPath().Nb[1].lng());
+	console.log(window.polylines)
 };
