@@ -9,9 +9,3 @@ async function tangkapMarcello() {
         console.log(error);
     }
 }
-
-const marcello = document.getElementById("marcello");
-
-marcello.addEventListener("click", e =>{
-    tangkapMarcello();
-})
