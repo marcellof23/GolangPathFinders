@@ -42,7 +42,7 @@ func (v Vertices) addVertices(n Node) Vertices {
 //  return str
 // }
 
-func astar(Graf Graph, start, dest Node, d, h PairCost) Vertices {
+func astar(Graf Graph, start, dest Node, d, h PairCost) (Vertices, float64) {
 	closed_list := make(map[Node]bool)
 
 	PQ := &priorityQueue{}
@@ -50,10 +50,12 @@ func astar(Graf Graph, start, dest Node, d, h PairCost) Vertices {
 	pqheap.Push(PQ, &list_PQ{val: CreateVertices(start)})
 
 	for PQ.Len() > 0 {
-		p := pqheap.Pop(PQ).(*list_PQ).val.(Vertices)
+		x := pqheap.Pop(PQ)
+		p := x.(*list_PQ).val.(Vertices)
 		n := p[len(p)-1]
 		if n == dest {
-			return p
+			Prio := x.(*list_PQ).prio
+			return p, Prio
 		}
 		if closed_list[n] {
 			continue
@@ -67,8 +69,9 @@ func astar(Graf Graph, start, dest Node, d, h PairCost) Vertices {
 				val:  newVertices,
 				prio: -1 * (newVertices.TotalCost(d) + h(adjacent, dest)),
 			})
+
 		}
 	}
 
-	return nil
+	return nil, 0.0
 }
