@@ -3,8 +3,11 @@ package Astar
 // go test -v ./...
 
 import (
+	"AStarPathFinder/src/Models"
 	"fmt"
 	"math"
+	"strconv"
+	"strings"
 )
 
 type Points struct {
@@ -51,7 +54,6 @@ func (Graf Graphs) adj(NumNodes Node) []Node {
 
 func (Graf Graphs) AddEdge(a, b Node) Graphs {
 	Graf[a] = append(Graf[a], b)
-	Graf[b] = append(Graf[b], a)
 	return Graf
 }
 
@@ -76,6 +78,7 @@ func HeuristicHaversine(x, y Node) (km float64) {
 	return km
 }
 
+// ini kalo mau pake euclidian distance
 func heuristicFunction(x, y Node) float64 {
 	u := x.(Points)
 	v := y.(Points)
@@ -83,21 +86,6 @@ func heuristicFunction(x, y Node) float64 {
 	d_y := v.Lng() - u.Lng()
 	return 100 * math.Sqrt(float64(d_x*d_x+d_y*d_y))
 }
-
-// func TestAstar(t *testing.T) {
-// 	var arrNodes [4]Node
-// 	arrNodes[0] = NewPoints(2.14, 3.15)
-// 	arrNodes[1] = NewPoints(1.0, 7.0)
-// 	arrNodes[2] = NewPoints(1.0, 6.0)
-// 	arrNodes[3] = NewPoints(5.0, 6.0)
-// 	g := CreateGraph().AddEdge(arrNodes[0], arrNodes[1]).AddEdge(arrNodes[1], arrNodes[2]).AddEdge(arrNodes[0], arrNodes[3])
-// 	p := astar(g, arrNodes[2], arrNodes[3], HeuristicHaversine, HeuristicHaversine)
-// 	fmt.Print("Path : ")
-// 	for _, n := range p {
-// 		fmt.Printf("%s ", n)
-// 	}
-// 	fmt.Println("")
-// }
 
 func PrintAstar() {
 	N := 8
@@ -147,32 +135,38 @@ func StringAstar() string {
 	return str
 }
 
-func StringAstars(N int) string {
-	x := 5
-	y := 10
-	Source := 0
-	Dest := 5
-	twodim := make([][]int, y)
-	for i := range twodim {
-		twodim[i] = make([]int, x)
+func StringAstars(astardata Models.AstarData) string {
+	arrNodes := make([]Node, astardata.NumNodes)
+	stringSlice := strings.Split(astardata.Coordinates, ",")
+
+	for i, u := range stringSlice {
+		v := strings.Fields(u)
+		p := make([]float64, 2)
+		for j, str := range v {
+			var errs error
+			p[j], errs = strconv.ParseFloat(str, 64)
+			if errs != nil {
+
+			}
+		}
+		arrNodes[i] = NewPoints(p[0], p[1], i)
 	}
-	arrNodes := make([]Node, N)
-	for i := 0; i < N; i++ {
-		//arrNodes[i] = NewPoints()
-	}
+
 	g := CreateGraph()
-	for i := 0; i < x/2+1; i++ {
-		for j := 0; j < y/2+1; j++ {
-			if twodim[i][j] == 1 {
+	strMatrix := strings.Split(astardata.MatrixRelation, ",")
+	for i := 0; i < len(strMatrix); i++ {
+		strMatrixIn := strings.Fields(strMatrix[i])
+		for j := 0; j < len(strMatrix); j++ {
+			if strMatrixIn[j] == "1" {
 				g.AddEdge(arrNodes[i], arrNodes[j])
 			}
-
 		}
 	}
-	p := astar(g, arrNodes[Source], arrNodes[Dest], HeuristicHaversine, HeuristicHaversine)
+
+	x := astar(g, arrNodes[astardata.SourceNode], arrNodes[astardata.DestNode], HeuristicHaversine, HeuristicHaversine)
 	fmt.Print("Path : ")
 	str := ""
-	for _, n := range p {
+	for _, n := range x {
 		str += n.String()
 	}
 	return str
