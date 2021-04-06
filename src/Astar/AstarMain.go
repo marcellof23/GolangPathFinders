@@ -11,7 +11,6 @@ import (
 )
 
 var distance string
-var BobotEdge []float64
 
 type Points struct {
 	lat float64
@@ -139,10 +138,10 @@ func PrintAstar() {
 // 	return str
 // }
 
-func StringAstars(astardata Models.AstarData) string {
+func StringAstars(astardata Models.AstarData) (string, []float64) {
+	var BobotEdge []float64
 	arrNodes := make([]Node, astardata.NumNodes)
 	stringSlice := strings.Split(astardata.Coordinates, ",")
-
 	for i, u := range stringSlice {
 		v := strings.Fields(u)
 		p := make([]float64, 2)
@@ -187,19 +186,20 @@ func StringAstars(astardata Models.AstarData) string {
 	}
 	dist := Dist * -1
 	distance = strconv.FormatFloat(dist, 'f', 6, 64)
-	return str
+	return str, BobotEdge
 }
 
 func HeuristicHaversineJson() string {
 	return distance
 }
 
-func EdgeJson() string {
+func EdgeJson(BobotEdge []float64) string {
 	str := ""
 	for i, _ := range BobotEdge {
 		if i == 0 {
 			str += "("
-		} else if i == (len(BobotEdge) - 1) {
+		}
+		if i == (len(BobotEdge) - 1) {
 			str += strconv.FormatFloat(BobotEdge[i], 'f', 6, 64) + ")"
 			continue
 		}

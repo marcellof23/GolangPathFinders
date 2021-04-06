@@ -68,13 +68,15 @@ func PostData() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		var astardata Models.AstarData
 		c.BindJSON(&astardata)
-		if Astar.StringAstars(astardata) == "" {
+		str1, x := Astar.StringAstars(astardata)
+		if str1 == "" {
 			c.AbortWithStatus(http.StatusNotFound)
 		} else {
+			str2 := Astar.EdgeJson(x)
 			c.JSON(http.StatusOK, map[string]string{
-				"Path":      Astar.StringAstars(astardata),
+				"Path":      str1,
 				"Distance":  Astar.HeuristicHaversineJson(),
-				"Bobotedge": Astar.EdgeJson(),
+				"Bobotedge": str2,
 			})
 		}
 	}
