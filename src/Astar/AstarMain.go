@@ -113,30 +113,31 @@ func PrintAstar() {
 	g.AddEdge(arrNodes[3], arrNodes[4])
 	g.AddEdge(arrNodes[4], arrNodes[5])
 	g.AddEdge(arrNodes[5], arrNodes[6])
-	p := astar(g, arrNodes[3], arrNodes[5], HeuristicHaversine, HeuristicHaversine)
+	p, Dist := astar(g, arrNodes[3], arrNodes[5], HeuristicHaversine, HeuristicHaversine)
 	fmt.Print("Path : ")
 	for _, n := range p {
 		fmt.Printf("%s ", n)
 	}
+	fmt.Printf("%f ", Dist)
 	fmt.Println("")
 }
 
-func StringAstar() string {
+// func StringAstar() string {
 
-	var arrNodes [4]Node
-	arrNodes[0] = NewPoints(2.14, 3.15, 0)
-	arrNodes[1] = NewPoints(1.0, 7.0, 1)
-	arrNodes[2] = NewPoints(1.0, 6.0, 2)
-	arrNodes[3] = NewPoints(5.0, 6.0, 3)
-	g := CreateGraph().AddEdge(arrNodes[0], arrNodes[1]).AddEdge(arrNodes[1], arrNodes[2]).AddEdge(arrNodes[0], arrNodes[3])
-	p := astar(g, arrNodes[2], arrNodes[3], HeuristicHaversine, HeuristicHaversine)
-	fmt.Print("Path : ")
-	str := ""
-	for _, n := range p {
-		str += n.String()
-	}
-	return str
-}
+// 	var arrNodes [4]Node
+// 	arrNodes[0] = NewPoints(2.14, 3.15, 0)
+// 	arrNodes[1] = NewPoints(1.0, 7.0, 1)
+// 	arrNodes[2] = NewPoints(1.0, 6.0, 2)
+// 	arrNodes[3] = NewPoints(5.0, 6.0, 3)
+// 	g := CreateGraph().AddEdge(arrNodes[0], arrNodes[1]).AddEdge(arrNodes[1], arrNodes[2]).AddEdge(arrNodes[0], arrNodes[3])
+// 	p, Dist := astar(g, arrNodes[2], arrNodes[3], HeuristicHaversine, HeuristicHaversine)
+// 	fmt.Print("Path : ")
+// 	str := ""
+// 	for _, n := range p {
+// 		str += n.String()
+// 	}
+// 	return str
+// }
 
 func StringAstars(astardata Models.AstarData) string {
 	arrNodes := make([]Node, astardata.NumNodes)
@@ -167,7 +168,7 @@ func StringAstars(astardata Models.AstarData) string {
 			}
 		}
 	}
-	x := astar(g, arrNodes[astardata.SourceNode], arrNodes[astardata.DestNode], HeuristicHaversine, HeuristicHaversine)
+	x, Dist := astar(g, arrNodes[astardata.SourceNode], arrNodes[astardata.DestNode], HeuristicHaversine, HeuristicHaversine)
 	fmt.Print("Path : ")
 	str := ""
 	for i, n := range x {
@@ -177,15 +178,15 @@ func StringAstars(astardata Models.AstarData) string {
 			str += n.String() + ")"
 			continue
 		}
-		u, err := strconv.Atoi(x[i].String())
-		v, err := strconv.Atoi(x[i+1].String())
+		u, err1 := strconv.Atoi(x[i].String())
+		v, err2 := strconv.Atoi(x[i+1].String())
 		BobotEdge = append(BobotEdge, HeuristicHaversine(arrNodes[u], arrNodes[v]))
-		if err != nil {
+		if err1 != nil && err2 != nil {
 
 		}
 		str += n.String() + ","
 	}
-	dist := HeuristicHaversine(arrNodes[astardata.SourceNode], arrNodes[astardata.DestNode])
+	dist := Dist
 	distance = strconv.FormatFloat(dist, 'f', 6, 64)
 	return str
 }

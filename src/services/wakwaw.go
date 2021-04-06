@@ -55,8 +55,8 @@ func Calc() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		c.Header("Content-Type", "application/json")
 		c.JSON(http.StatusOK, map[string]string{
-			"data":   "marcello wakwaws",
-			"jesson": Astar.StringAstar(),
+			"data": "marcello wakwaws",
+			// "jesson": Astar.StringAstar(),
 		})
 		c.JSON(http.StatusOK, map[string]string{
 			"datas": "hello from yey",
