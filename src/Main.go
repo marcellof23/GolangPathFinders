@@ -32,6 +32,5 @@ func main() {
 	api.GET("/calc", services.Calc())
 	api.POST("/graph", services.ParseFile())
 	api.POST("/graphdata", services.PostData())
-	router.Run("127.0.0.1:5000")
 	http.ListenAndServe(":"+port, nil)
 }
